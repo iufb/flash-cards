@@ -1,12 +1,12 @@
-import { form } from './main.js'
-import { customFetch, createNotification, url } from './utils.js'
+import { form } from "./main.js";
+import { customFetch, createNotification, url } from "./utils.js";
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const formData = new FormData(form);
-  console.log(formData.get("question"));
   const body = {
     question: formData.get("question"),
     answer: formData.get("answer"),
+    tagId: formData.get("tag"),
   };
 
   customFetch(
@@ -23,4 +23,3 @@ form.addEventListener("submit", (e) => {
     }
   );
 });
-

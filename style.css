@@ -83,7 +83,12 @@ main {
   align-items: center;
   gap: 20px;
 }
-
+.select{
+  width: 200px;
+  height: 40px;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
 .card {
   text-align: center;
   pad: 4px;

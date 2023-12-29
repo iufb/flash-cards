@@ -14,7 +14,7 @@
         <span class="bar1"></span>
         <span class="bar2"></span>
         <span class="bar3"></span>
-        </div>
+      </div>
       <div class="header-right">
         <nav>
           <ul class="navlist">
@@ -34,9 +34,13 @@
           <h2>Create new Card.</h2>
           <input type="text" placeholder="Question:" name="question" />
           <input type="text" placeholder="Answer:" name="answer" />
+          <select class="select" name="tag"></select>
           <button type="submit" class="createBtn">Create</button>
         </form>
         <div class="cardContainer">
+          <select class="select">
+            <option value="">All</option>
+          </select>
           <div class="card"></div>
           <div class="cartControls">
             <button data-direction="back" class="card-control-button">
