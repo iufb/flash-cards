@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <h1 class="logo">Flash-Cards.</h1>
+      <div class="burger">
+        <span class="bar1"></span>
+        <span class="bar2"></span>
+        <span class="bar3"></span>
+        </div>
+      <div class="header-right">
+        <nav>
+          <ul class="navlist">
+            <li class="navlink">Create</li>
+            <li class="navlink navlink-active">Learn</li>
+          </ul>
+        </nav>
+        <div class="inputContainer">
+          <input class="search" />
+          <button class="searchButton">Find!</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="content">
+        <form class="createForm">
+          <h2>Create new Card.</h2>
+          <input type="text" placeholder="Question:" name="question" />
+          <input type="text" placeholder="Answer:" name="answer" />
+          <button type="submit" class="createBtn">Create</button>
+        </form>
+        <div class="cardContainer">
+          <div class="card"></div>
+          <div class="cartControls">
+            <button data-direction="back" class="card-control-button">
+              Back
+            </button>
+            <button data-direction="forward" class="card-control-button">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="loader">
+      <span class="loader-content">Flash-Cards</span>
+    </div>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="card.js"></script>
+    <script type="module" src="form.js"></script>
+    <script type="module" src="utils.js"></script>
+    <script type="module" src="search.js"></script>
+    <script type="module" src="burger.js"></script>
+  </body>
+</html>
