@@ -92,6 +92,7 @@ main {
   height: 50vh;
   display: flex;
   justify-content: center;
+  transition: transform 0.5s ease-in-out;
   align-items: center;
   border-radius: 20px;
   background-color: white;

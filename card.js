@@ -8,9 +8,11 @@ function styleQuestion(question) {
 const toggleQuestion = () => {
   cardContent.addEventListener("click", (e) => {
     if (answerShowed) {
+      e.target.style.transform = "rotate(90deg)";
       e.target.textContent = styleQuestion(questionsStore[currentQuestion]);
       answerShowed = false;
     } else {
+      e.target.style.transform = "rotate(0deg)";
       e.target.textContent = questionsStore[currentQuestion].answer;
       answerShowed = true;
     }
