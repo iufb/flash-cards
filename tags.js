@@ -12,7 +12,7 @@ function fetchTags() {
       optionLearn.value = tag.id;
       optionLearn.textContent = tag.name;
 
-      const optionCreate = document.createElement("option"); 
+      const optionCreate = document.createElement("option");
       optionCreate.value = tag.id;
       optionCreate.textContent = tag.name;
 
@@ -23,16 +23,12 @@ function fetchTags() {
 }
 
 fetchTags();
-document.body.addEventListener("change", (e) => {
-  if (e.target.tagName == "SELECT") {
-    if (e.target.classList.contains("learn-select")) {
-      customFetch(
-        url(`cards?${new URLSearchParams({ tag: e.target.value }).toString()}`),
-        (data) => {
-          displayCard(data);
-          questionsStore.push(...data);
-        }
-      );
+learnSelect.addEventListener("change", (e) => {
+  customFetch(
+    url(`cards?${new URLSearchParams({ tag: e.target.value }).toString()}`),
+    (data) => {
+      displayCard(data);
+      questionsStore.push(...data);
     }
-  }
+  );
 });

@@ -1,7 +1,11 @@
 import { questionsStore, cardContainer } from "./main.js";
+import { openModal } from "./modal.js";
+import { customFetch, url } from "./utils.js";
 let currentQuestion = 0;
 let answerShowed = false;
 const cardContent = document.querySelector(".card");
+const deleteBtn = document.querySelector(".delete-card");
+const editBtn = document.querySelector(".edit-card");
 function styleQuestion(question) {
   return `${question.id}. ${question.question}?`;
 }
@@ -77,5 +81,22 @@ const createCardControls = () => {
       : styleQuestion(questionsStore[currentQuestion]);
   });
 };
+
+const deleteCard = customFetch(url("card"), {
+  method: "DELETE",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+deleteBtn.addEventListener("click", () => {
+  openModal(_, () => {
+    const answer = confirm("Are you sure you want to delete this card?");
+    if (answer) {
+      deleteCard();
+    } else {
+      document.querySelector(".modal").style.display = "none";
+    }
+  });
+});
 createCardControls();
 toggleQuestion();

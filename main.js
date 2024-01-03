@@ -4,6 +4,13 @@ export const questionsStore = []
 export const nav = document.querySelector(".navlist");
 export const form = document.querySelector(".createForm");
 export const cardContainer = document.querySelector(".cardContainer");
+fetch(url('auth/check-session')).then(res => {
+  if(!res.ok){
+    // window.location = './pages/register'
+  }
+  return res.json()
+}).then(data => console.log(data)
+)
 let mode = "learn";
 const fetchQuestions = () => {
   customFetch(url("cards"), (data) => {
