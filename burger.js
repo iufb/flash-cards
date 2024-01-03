@@ -9,3 +9,10 @@ burgetBtn.addEventListener("click", () => {
     headerRight.style.display = "flex";
   }
 });
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 700) {
+    headerRight.style.display = "flex";
+  } else {
+    headerRight.style.display = "none";
+  }
+});

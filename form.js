@@ -8,7 +8,6 @@ form.addEventListener("submit", (e) => {
     answer: formData.get("answer"),
     tagId: formData.get("tag"),
   };
-
   customFetch(
     url("cards"),
     () => {
