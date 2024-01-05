@@ -1,10 +1,3 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   width: 100%;
   height: 100vh;
@@ -89,7 +82,13 @@ main {
   font-size: 22px;
   margin-bottom: 20px;
 }
-.modal{
+.deleteModal{
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+.modal {
+  position: absolute;
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.65);
@@ -167,19 +166,6 @@ main {
   }
 }
 
-button {
-  border: 1px solid white;
-  padding: 10px 15px;
-  color: white;
-  background-color: #46a2da;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #2379ae;
-}
-
 .error {
   color: red;
   border: 1px solid red;
@@ -194,11 +180,6 @@ button:disabled {
   cursor: unset;
 }
 
-input {
-  border: 1px solid #46a2da;
-  padding: 10px 15px;
-  border-radius: 10px;
-}
 .burger {
   display: none;
 }
