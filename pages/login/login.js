@@ -1,6 +1,8 @@
 import { customFetch, url, createNotification } from "../../utils.js";
 const form = document.querySelector("form");
-
+if(window.localStorage.getItem('token')){
+ window.location = '../../index.html'
+}
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -9,9 +11,10 @@ form.addEventListener("submit", (e) => {
     url("auth/login"),
     (data) => {
       console.log(data);
-
+      window.localStorage.setItem('token', data.access_token)
+      window.localStorage.setItem('userId', data.id)
       createNotification("success", "Logged");
-    //    window.location = "../../index.html";
+       window.location = "../../index.html";
     },
     {
       method: "POST",

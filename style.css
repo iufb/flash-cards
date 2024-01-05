@@ -57,7 +57,7 @@ main {
 }
 
 .createForm {
-  display: flex;
+  display: none;
   width: 100%;
   min-width: 500px;
   flex-direction: column;
@@ -105,6 +105,7 @@ main {
   display: flex;
   justify-content: center;
   transition: transform 1s ease-in-out;
+  transform-style: preserve-3d;
   align-items: center;
   border-radius: 20px;
   background-color: white;
@@ -221,7 +222,12 @@ button:disabled {
   .createForm {
     min-width: 400px;
   }
-
+  .modal{
+    max-width: 300px;
+  }
+  .modal > h1{
+    font-size: 18px;
+  }
   .header-right {
     position: absolute;
     left: 0;

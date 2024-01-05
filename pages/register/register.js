@@ -1,6 +1,8 @@
 import { customFetch, url, createNotification } from "../../utils.js";
 const form = document.querySelector("form");
-
+if(window.localStorage.getItem('token')){
+ window.location = '../../index.html'
+}
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 

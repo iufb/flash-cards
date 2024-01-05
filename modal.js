@@ -1,3 +1,4 @@
+import { tags } from "./tags.js";
 import { customFetch, url } from "./utils.js";
 
 const modal = document.querySelector(".modalContainer");
@@ -39,16 +40,21 @@ export const createEditModal = () => {
   editModal.innerHTML = `
    <h1>Edit Card</h1>
    <form class='editForm'>
-          <h2>Create new Card.</h2>
           <input type="text" placeholder="Question:" name="question" />
           <input type="text" placeholder="Answer:" name="answer" />
-          <select class="select create-select" name="tag"></select>
+          <select class="select edit-select" name="tag"></select>
      <div style="display:flex;justify-content:space-between;align-items:center;">
           <button type="submit">Edit</button>
           <button type='button' class='close'>Close</button>
           </div>
    </form>
   `;
+  tags.forEach((tag) => {
+    const option = document.createElement("option");
+    option.value = tag.id;
+    option.textContent = tag.name;
+    editModal.querySelector(".edit-select").appendChild(option);
+  });
   editModal.querySelector(".editForm").addEventListener("submit", (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);

@@ -14,7 +14,7 @@ const searchCards = () => {
       displayCard(data);
       questionsStore.splice(0, questionsStore.length);
       questionsStore.push(...data);
-    }
+    }, {method: 'GET'}
   );
   searchInput.value = "";
 };

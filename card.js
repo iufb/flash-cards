@@ -1,6 +1,6 @@
 import { questionsStore, cardContainer } from "./main.js";
 import { createDeleteModal, createEditModal, openModal } from "./modal.js";
-import { customFetch, url } from "./utils.js";
+import { createNotification, customFetch, url } from "./utils.js";
 let currentQuestion = 0;
 let answerShowed = false;
 const cardContent = document.querySelector(".card");
@@ -16,8 +16,8 @@ const toggleQuestion = () => {
       e.target.textContent = styleQuestion(questionsStore[currentQuestion]);
       answerShowed = false;
     } else {
-      e.target.style.transform = "rotateY(360deg)";
-      e.target.textContent = questionsStore[currentQuestion].answer;
+      e.target.style.transform = "rotateY(180deg)";
+      e.target.textContent = questionsStore[currentQuestion].answer.split('').reverse().join('');
       answerShowed = true;
     }
   });
@@ -81,19 +81,26 @@ const createCardControls = () => {
       : styleQuestion(questionsStore[currentQuestion]);
   });
 };
+
 const deleteCard = () =>
-  customFetch(url("card"), {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
+  customFetch(
+    url(`card/${questionsStore[currentQuestion].id}`),
+    () => {
+      createNotification("success", "Card deleted.");
     },
-  });
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
 deleteBtn.addEventListener("click", () => {
   openModal(createDeleteModal(deleteCard));
 });
-editBtn.addEventListener('click', ()=>{
-  openModal(createEditModal())
-})
+editBtn.addEventListener("click", () => {
+  openModal(createEditModal());
+});
 createCardControls();
 toggleQuestion();
