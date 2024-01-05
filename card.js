@@ -1,5 +1,5 @@
 import { questionsStore, cardContainer } from "./main.js";
-import { createDeleteModal, openModal } from "./modal.js";
+import { createDeleteModal, createEditModal, openModal } from "./modal.js";
 import { customFetch, url } from "./utils.js";
 let currentQuestion = 0;
 let answerShowed = false;
@@ -92,5 +92,8 @@ const deleteCard = () =>
 deleteBtn.addEventListener("click", () => {
   openModal(createDeleteModal(deleteCard));
 });
+editBtn.addEventListener('click', ()=>{
+  openModal(createEditModal())
+})
 createCardControls();
 toggleQuestion();
