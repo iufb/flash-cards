@@ -1,5 +1,5 @@
 const headerRight = document.querySelector(".header-right");
-
+headerRight.style.background = "#fafafa";
 const burgetBtn = document.querySelector(".burger");
 burgetBtn.addEventListener("click", () => {
   burgetBtn.classList.toggle("change");

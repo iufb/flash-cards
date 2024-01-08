@@ -16,8 +16,8 @@ const toggleQuestion = () => {
       e.target.textContent = styleQuestion(questionsStore[currentQuestion]);
       answerShowed = false;
     } else {
-      e.target.style.transform = "rotateY(180deg)";
-      e.target.textContent = questionsStore[currentQuestion].answer.split('').reverse().join('');
+      e.target.style.transform = "rotateY(360deg)";
+      e.target.textContent = questionsStore[currentQuestion].answer;
       answerShowed = true;
     }
   });
@@ -84,7 +84,11 @@ const createCardControls = () => {
 
 const deleteCard = () =>
   customFetch(
-    url(`card/${questionsStore[currentQuestion].id}`),
+    url(
+      `card/${questionsStore[currentQuestion].id}/${window.localStorage.getItem(
+        "userId"
+      )}`
+    ),
     () => {
       createNotification("success", "Card deleted.");
     },
